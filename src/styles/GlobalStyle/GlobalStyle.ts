@@ -1,0 +1,67 @@
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: "Poppins";
+  }
+
+  body {
+
+    background-color: white;
+    margin: 0;
+    min-height:100vh;
+    padding: 15px;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    font : inherit;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  input {
+    font-family: inherit;
+    border: none;
+  }
+
+  button {
+    cursor: pointer;
+    font: inherit;
+    color:inherit;
+    border: none;
+    background-color: transparent;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  img{
+    max-width: 100%;
+  }
+`;
+
+export default GlobalStyle;
