@@ -1,8 +1,16 @@
+import HeaderStyled from "./HeaderStyled";
+
 const Header = (): React.ReactElement => {
   return (
-    <header>
-      <img src="images/happy-tails-logo.png" alt="happy tails logo" />
-    </header>
+    <HeaderStyled>
+      <img
+        className="header-logo"
+        src="images/happy-tails-logo.png"
+        alt="happy tails logo"
+        width={67}
+        height={66}
+      />
+    </HeaderStyled>
   );
 };
 
