@@ -9,10 +9,10 @@
     "build:dev": "tsc -w",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "prepare": "husky install",
     "test": "vitest run",
     "test:dev": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@fontsource/poppins": "^5.0.1",

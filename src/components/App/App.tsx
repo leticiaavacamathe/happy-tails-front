@@ -1,5 +1,5 @@
-const App = (): JSX.Element => {
-  return <p>Hello world!</p>;
-};
+import Layout from "../Layout/Layout";
+
+const App = (): React.ReactElement => <Layout />;
 
 export default App;
