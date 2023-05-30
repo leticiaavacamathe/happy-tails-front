@@ -6,34 +6,34 @@ const NavBar = (): React.ReactElement => {
     <NavBarStyled>
       <ul>
         <li>
-          <NavLink to="/" title="Home icon" aria-label="Home icon">
+          <NavLink to="/" title="Home" aria-label="home">
             <img
               src="images/home-icon.svg"
-              alt="Home icon"
+              alt="home icon"
               width={48}
               height={48}
             />
           </NavLink>
         </li>
         <li>
-          <NavLink to="/add" title="Add icon" aria-label="Add icon">
+          <NavLink to="/add" title="Add" aria-label="add">
             <img
               src="images/add-icon.svg"
-              alt="Add icon"
+              alt="add icon"
               width={48}
               height={48}
             />
           </NavLink>
         </li>
         <li>
-          <NavLink to="/login" title="logout icon" aria-label="logout icon">
+          <button aria-label="logout">
             <img
               src="images/logout-icon.svg"
               alt="logout icon"
               width={48}
               height={48}
             />
-          </NavLink>
+          </button>
         </li>
       </ul>
     </NavBarStyled>
