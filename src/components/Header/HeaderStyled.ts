@@ -8,7 +8,7 @@ const HeaderStyled = styled.header`
   align-items: center;
 
   .header-logo {
-    padding-left: 5px;
+    margin-left: 5px;
   }
 `;
 
