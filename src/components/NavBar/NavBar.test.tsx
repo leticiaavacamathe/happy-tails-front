@@ -7,9 +7,13 @@ describe("Given a NavBar component", () => {
     test("Then it should show 2 navigation links and 1 button", () => {
       renderWithProviders(wrapWithRouter(<NavBar />));
 
-      const homeLink = screen.getByRole("link", { name: "home" });
-      const addLink = screen.getByRole("link", { name: "add" });
-      const logoutButton = screen.getByRole("button", { name: "logout" });
+      const home = "home";
+      const add = "add";
+      const logout = "logout";
+
+      const homeLink = screen.getByRole("link", { name: home });
+      const addLink = screen.getByRole("link", { name: add });
+      const logoutButton = screen.getByRole("button", { name: logout });
 
       expect(homeLink).toBeInTheDocument();
       expect(addLink).toBeInTheDocument();
