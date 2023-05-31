@@ -57,6 +57,10 @@ const GlobalStyle = createGlobalStyle`
   img{
     max-width: 100%;
   }
+
+  .logo-big{
+    margin-top: 18px;
+  }
 `;
 
 export default GlobalStyle;
