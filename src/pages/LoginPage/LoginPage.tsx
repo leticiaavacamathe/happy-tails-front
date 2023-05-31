@@ -8,7 +8,7 @@ const LoginPage = (): React.ReactElement => {
         src="images/happy-tails-icon-letters.png"
         alt="happy tails logo"
         width={150}
-        height={161}
+        height={180}
       />
       <LoginForm />
     </>
