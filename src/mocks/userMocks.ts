@@ -1,5 +1,7 @@
 import { UserStateStructure, UserTokenStructure } from "../store/user/types";
 
+export const tokenMock = "1q2w3e3t2t2s1ds1f2rtr";
+
 export const initialUserStateMock: UserStateStructure = {
   name: "",
   id: "",

@@ -11,20 +11,20 @@ const LoginFormStyled = styled.form`
   .loginform-control {
     display: flex;
     flex-direction: column;
-  }
 
-  .loginform-control__input {
-    padding: 5px;
-    width: 304px;
-    height: 42.35px;
-    left: 8px;
-    top: 244px;
-    border-radius: 7.52905px;
-    background-color: ${(props) => props.theme.colors.backgroundPrimary};
-  }
+    &__input {
+      padding: 5px;
+      width: 304px;
+      height: 42.35px;
+      left: 8px;
+      top: 244px;
+      border-radius: 7.52905px;
+      background-color: ${(props) => props.theme.colors.backgroundPrimary};
+    }
 
-  .loginform-control__label {
-    padding: 10px;
+    &__label {
+      padding: 10px;
+    }
   }
 
   .loginform-button {
