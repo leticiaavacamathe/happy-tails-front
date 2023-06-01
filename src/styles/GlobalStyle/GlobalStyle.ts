@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    font-family: "Poppins";
+    font-family: ${(props) => props.theme.fonts.primary};;
   }
 
   body {
