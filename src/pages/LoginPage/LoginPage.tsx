@@ -10,7 +10,7 @@ const LoginPage = (): React.ReactElement => {
         width={150}
         height={180}
       />
-      <LoginForm />
+      <LoginForm handleOnSubmit={() => ({})} />
     </>
   );
 };

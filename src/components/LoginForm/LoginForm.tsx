@@ -1,21 +1,63 @@
+import { useState } from "react";
 import LoginFormStyled from "./LoginFormStyled";
 
-const LoginForm = (): React.ReactElement => {
+interface LoginFormProps {
+  handleOnSubmit: () => void;
+}
+
+const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
+  const [userData, setUserData] = useState({
+    username: "",
+    password: "",
+  });
+
+  const onChangeInputs = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserData({
+      ...userData,
+      [event.target.id]: event.target.value,
+    });
+  };
+
+  const handleOnClick = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    handleOnSubmit();
+    setUserData(userData);
+  };
+
+  const isCompleated = userData.username !== "" && userData.password !== "";
+
   return (
-    <LoginFormStyled action="">
-      <div className="form-control">
-        <label className="form-control__label" htmlFor="username">
-          Username:
+    <LoginFormStyled onSubmit={handleOnClick}>
+      <div className="loginform-control">
+        <label className="loginform-control__label" htmlFor="username">
+          Username
         </label>
-        <input className="form-control__input" type="text" id="username" />
+        <input
+          type="text"
+          className="loginform-control__input"
+          id="username"
+          onChange={onChangeInputs}
+          value={userData.username}
+        />
       </div>
-      <div className="form-control">
-        <label className="form-control__label" htmlFor="password">
-          Password:
+      <div className="loginform-control">
+        <label className="loginform-control__label" htmlFor="password">
+          Password
         </label>
-        <input className="form-control__input" type="password" id="password" />
+        <input
+          type="password"
+          className="loginform-control__input"
+          id="password"
+          onChange={onChangeInputs}
+          value={userData.password}
+        />
       </div>
-      <button className="form-button" type="submit">
+      <button
+        type="submit"
+        className="loginform-button"
+        disabled={!isCompleated}
+        onClick={handleOnSubmit}
+      >
         Log in
       </button>
     </LoginFormStyled>
