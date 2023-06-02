@@ -1,12 +1,25 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import NavBarStyled from "./NavBarStyled";
+import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
+import { useAppDispatch } from "../../store";
+import { logoutUserActionCreator } from "../../store/user/userSlice";
 
 const NavBar = (): React.ReactElement => {
+  const { removeToken } = useLocalStorage();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const logoutonClick = (): void => {
+    removeToken("token");
+    dispatch(logoutUserActionCreator);
+    navigate("/login", { replace: true });
+  };
+
   return (
     <NavBarStyled>
       <ul>
         <li>
-          <NavLink to="/" title="Home" aria-label="home">
+          <NavLink to="/home" title="Home" aria-label="home">
             <img
               src="images/home-icon.svg"
               alt="home icon"
@@ -26,7 +39,7 @@ const NavBar = (): React.ReactElement => {
           </NavLink>
         </li>
         <li>
-          <button aria-label="logout">
+          <button aria-label="logout" onClick={logoutonClick}>
             <img
               src="images/logout-icon.svg"
               alt="logout icon"
