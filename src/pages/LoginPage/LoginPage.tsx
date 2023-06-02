@@ -5,8 +5,10 @@ import { UserCredentials } from "../../store/user/types";
 import { loginUserActionCreator } from "../../store/user/userSlice";
 import useUser from "../../hooks/useUser/useUser";
 import useToken from "../../hooks/useToken/useToken";
+import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 
 const LoginPage = (): React.ReactElement => {
+  const { setToken } = useLocalStorage();
   const { getTokenData } = useToken();
   const { getUserToken } = useUser();
   const dispatch = useAppDispatch();
@@ -18,6 +20,7 @@ const LoginPage = (): React.ReactElement => {
     if (token) {
       const userLoginData = await getTokenData(token);
       dispatch(loginUserActionCreator(userLoginData));
+      setToken("token", token);
       navigate("/home", { replace: true });
     }
   };
