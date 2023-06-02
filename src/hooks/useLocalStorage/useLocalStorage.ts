@@ -8,7 +8,11 @@ const useLocalStorage = () => {
     return localStorage.getItem(key);
   }, []);
 
-  return { setToken, getToken };
+  const removeToken = (key: string) => {
+    localStorage.removeItem(key);
+  };
+
+  return { setToken, getToken, removeToken };
 };
 
 export default useLocalStorage;
