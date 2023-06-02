@@ -17,23 +17,39 @@ describe("Given a LocalStorage custom hook", () => {
       setToken(key, value);
       expect(localStorage.getItem(key)).toBe(value);
     });
+  });
 
-    describe("When the getToken function is invoked with the key 'token'", () => {
-      test("Then it should get the token value", () => {
-        const value = tokenMock;
+  describe("When the getToken function is invoked with the key 'token'", () => {
+    test("Then it should get the token value", () => {
+      const value = tokenMock;
 
-        localStorage.setItem(key, value);
+      localStorage.setItem(key, value);
 
-        const {
-          result: {
-            current: { getToken },
-          },
-        } = renderHook(() => useLocalStorage());
+      const {
+        result: {
+          current: { getToken },
+        },
+      } = renderHook(() => useLocalStorage());
 
-        getToken(key);
+      getToken(key);
 
-        expect(localStorage.getItem(key)).toBe(value);
-      });
+      expect(localStorage.getItem(key)).toBe(value);
+    });
+  });
+
+  describe("When the removeToken function is invoked with a valid key", () => {
+    test("Then it should remove the token", () => {
+      localStorage.removeItem(key);
+
+      const {
+        result: {
+          current: { removeToken },
+        },
+      } = renderHook(() => useLocalStorage());
+
+      removeToken(key);
+
+      expect(localStorage.removeItem(key)).toBe(undefined);
     });
   });
 });
