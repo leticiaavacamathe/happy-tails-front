@@ -3,6 +3,7 @@ import NavBarStyled from "./NavBarStyled";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 import { useAppDispatch } from "../../store";
 import { logoutUserActionCreator } from "../../store/user/userSlice";
+import paths from "../../routers/paths";
 
 const NavBar = (): React.ReactElement => {
   const { removeToken } = useLocalStorage();
@@ -12,7 +13,7 @@ const NavBar = (): React.ReactElement => {
   const logoutonClick = (): void => {
     removeToken("token");
     dispatch(logoutUserActionCreator);
-    navigate("/login", { replace: true });
+    navigate(`${paths.login}`, { replace: true });
   };
 
   return (

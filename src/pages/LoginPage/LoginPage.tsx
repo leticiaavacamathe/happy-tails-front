@@ -6,6 +6,7 @@ import { loginUserActionCreator } from "../../store/user/userSlice";
 import useUser from "../../hooks/useUser/useUser";
 import useToken from "../../hooks/useToken/useToken";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
+import paths from "../../routers/paths";
 
 const LoginPage = (): React.ReactElement => {
   const { setToken } = useLocalStorage();
@@ -21,7 +22,7 @@ const LoginPage = (): React.ReactElement => {
       const userLoginData = await getTokenData(token);
       dispatch(loginUserActionCreator(userLoginData));
       setToken("token", token);
-      navigate("/home", { replace: true });
+      navigate(`${paths.home}`, { replace: true });
     }
   };
 
