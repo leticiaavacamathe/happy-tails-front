@@ -42,7 +42,7 @@ describe("Given a NavBar component", () => {
 
       renderWithProviders(<RouterProvider router={router} />);
 
-      const button = screen.getByLabelText("logout");
+      const button = screen.getByRole("button", { name: "logout" });
 
       await userEvent.click(button);
 
