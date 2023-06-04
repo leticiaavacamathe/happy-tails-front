@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import LazyLoginPage from "./lazyComponent";
 import App from "../components/App/App";
 import paths from "./paths";
+import AnimalsListPage from "../pages/AnimalsListPage/AnimalsListPage";
 
 const routes: RouteObject[] = [
   {
@@ -21,6 +22,10 @@ const routes: RouteObject[] = [
             <LazyLoginPage />
           </Suspense>
         ),
+      },
+      {
+        path: `${paths.home}`,
+        element: <AnimalsListPage />,
       },
       {
         path: "*",

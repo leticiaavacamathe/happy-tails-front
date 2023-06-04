@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import LoginPage from "../../pages/LoginPage/LoginPage";
 import userEvent from "@testing-library/user-event";
+import paths from "../../routers/paths";
+import { LoggedUserStateMock } from "../../mocks/userMocks";
 
 describe("Given a NavBar component", () => {
   describe("When it is rendered", () => {
@@ -29,7 +31,6 @@ describe("Given a NavBar component", () => {
   });
   describe("When the user is logged and clicks on the logout button", () => {
     test("Then it should redirect the user to the loginPage", async () => {
-      const loginPath = "/login";
       const routes: RouteObject[] = [
         {
           path: "/",
@@ -40,13 +41,15 @@ describe("Given a NavBar component", () => {
 
       const router = createMemoryRouter(routes);
 
-      renderWithProviders(<RouterProvider router={router} />);
+      renderWithProviders(<RouterProvider router={router} />, {
+        user: LoggedUserStateMock,
+      });
 
       const button = screen.getByRole("button", { name: "logout" });
 
       await userEvent.click(button);
 
-      expect(router.state.location.pathname).toBe(loginPath);
+      expect(router.state.location.pathname).toBe(paths.login);
     });
   });
 });
