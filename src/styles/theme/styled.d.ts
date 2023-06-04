@@ -11,6 +11,7 @@ declare module "styled-components" {
       buttonSecondary: string;
       light: string;
       dark: string;
+      fontMainColor: string;
     };
 
     fonts: {

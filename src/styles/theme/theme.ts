@@ -8,6 +8,7 @@ const theme: DefaultTheme = {
     backgroundPrimary: "#f7f7f7",
     buttonPrimary: "#7f7094",
     buttonSecondary: "#f5f5fa",
+    fontMainColor: "#5c5858",
     light: "#fff",
     dark: "000",
   },
