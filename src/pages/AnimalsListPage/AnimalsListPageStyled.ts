@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const AnimalsListPageStyled = styled.main`
   padding: 15px;
-  height: 100vh;
   width: 100%;
   display: flex;
 
