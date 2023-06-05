@@ -1,4 +1,5 @@
-export interface AnimalStructure {
+export interface AnimalDataStructure {
+  id: string;
   name: string;
   image: string;
   type: string;
@@ -7,8 +8,4 @@ export interface AnimalStructure {
   sex: string;
   weight: number;
   description: string;
-}
-
-export interface AnimalDataStructure extends AnimalStructure {
-  _id: string;
 }
