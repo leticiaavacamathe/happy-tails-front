@@ -22,7 +22,7 @@ const LoginPage = (): React.ReactElement => {
       const userLoginData = await getTokenData(token);
       dispatch(loginUserActionCreator(userLoginData));
       setToken("token", token);
-      navigate(`${paths.home}`, { replace: true });
+      navigate(paths.home);
     }
   };
 

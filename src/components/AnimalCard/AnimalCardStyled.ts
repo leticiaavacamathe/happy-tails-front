@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const AnimalCardStyled = styled.section`
+const AnimalCardStyled = styled.article`
   display: flex;
   justify-content: center;
   .animal-card {
