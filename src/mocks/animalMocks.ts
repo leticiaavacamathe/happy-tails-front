@@ -4,7 +4,8 @@ export const animalsMocks: AnimalDataStructure[] = [
   {
     id: "7fa87fds8",
     name: "Max",
-    image: "https://imageofmax.png",
+    image:
+      "https://cdn.discordapp.com/attachments/1096796306695008286/1115235077689966672/gato_1.jpg",
     type: "dog",
     age: 5,
     city: "Barcelona",
