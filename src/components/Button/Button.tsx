@@ -2,7 +2,7 @@ import React from "react";
 import ButtonStyled from "./ButtonStyled";
 
 interface ButtonProps {
-  className: string;
+  className?: string;
   text?: string;
   actionOnClick?: () => void;
   children?: React.ReactElement;
