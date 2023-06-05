@@ -1,3 +1,4 @@
+import AnimalCard from "../../components/AnimalCard/AnimalCard.js";
 import { animalsMocks } from "../../mocks/animalMocks.js";
 import { loadAnimalsActionCreator } from "../../store/animal/animalSlice.js";
 import { useAppDispatch } from "../../store/index.js";
@@ -11,6 +12,7 @@ const AnimalsListPage = (): React.ReactElement => {
   return (
     <AnimalsListPageStyled>
       <h1 className="list-page-title">Adopt me</h1>
+      <AnimalCard animal={animalsMocks[0]} />
     </AnimalsListPageStyled>
   );
 };

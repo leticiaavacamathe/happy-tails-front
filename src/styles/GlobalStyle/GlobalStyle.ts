@@ -54,11 +54,11 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
   }
 
-  img{
+  img {
     max-width: 100%;
   }
-
-  .logo-big{
+  
+  .logo-big {
     margin-top: 18px;
   }
 `;

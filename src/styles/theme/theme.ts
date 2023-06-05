@@ -9,6 +9,7 @@ const theme: DefaultTheme = {
     buttonPrimary: "#7f7094",
     buttonSecondary: "#f5f5fa",
     fontMainColor: "#5c5858",
+    primaryLight: "#B6acc5",
     light: "#fff",
     dark: "000",
   },
