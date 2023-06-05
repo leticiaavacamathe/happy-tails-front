@@ -36,8 +36,8 @@ const AnimalCard = ({ animal }: AnimalCardProps): React.ReactElement => {
                 className="animal-card__buton__delete"
                 src="images/trash.svg"
                 alt="delete icon"
-                width={26}
-                height={31}
+                width={23}
+                height={28}
               />
             </Button>
           </div>
