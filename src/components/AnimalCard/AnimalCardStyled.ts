@@ -3,6 +3,8 @@ import styled from "styled-components";
 const AnimalCardStyled = styled.article`
   display: flex;
   justify-content: center;
+  position: relative;
+
   .animal-card {
     width: 290px;
     height: 283.52px;
@@ -10,6 +12,7 @@ const AnimalCardStyled = styled.article`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     &__title {
+      margin-bottom: 2px;
       color: ${(props) => props.theme.colors.fontMainColor};
       font-weight: ${(props) => props.theme.fontWeights.bold};
       font-size: ${(props) => props.theme.fontSizes.medium};

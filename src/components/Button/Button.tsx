@@ -1,4 +1,5 @@
 import React from "react";
+import ButtonStyled from "./ButtonStyled";
 
 interface ButtonProps {
   className: string;
@@ -16,14 +17,14 @@ const Button = ({
   accesibility,
 }: ButtonProps): React.ReactElement => {
   return (
-    <button
+    <ButtonStyled
       className={className}
       aria-label={accesibility}
       onClick={actionOnClick}
     >
       {text}
       {children}
-    </button>
+    </ButtonStyled>
   );
 };
 
