@@ -1,4 +1,5 @@
 import { AnimalDataStructure } from "../../store/animal/types";
+import Button from "../Button/Button";
 import AnimalCardStyled from "./AnimalCardStyled";
 
 interface AnimalCardProps {
@@ -27,6 +28,18 @@ const AnimalCard = ({ animal }: AnimalCardProps): React.ReactElement => {
               height={15}
             />
             <span className="animal-card__city">{animal.city}</span>
+            <Button
+              className="animal-card__button"
+              accesibility="delete button"
+            >
+              <img
+                className="animal-card__buton__delete"
+                src="images/trash.svg"
+                alt="delete icon"
+                width={26}
+                height={31}
+              />
+            </Button>
           </div>
         </div>
       </AnimalCardStyled>
