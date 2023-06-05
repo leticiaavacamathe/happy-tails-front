@@ -5,6 +5,7 @@ const AnimalsListPageStyled = styled.main`
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   .list-page-title {
     color: ${(props) => props.theme.colors.fontMainColor};

@@ -15,7 +15,7 @@ const routes: RouteObject[] = [
         element: <Navigate to="/login" replace />,
       },
       {
-        path: `${paths.login}`,
+        path: paths.login,
         element: (
           <Suspense>
             <LazyLoginPage />
@@ -23,7 +23,7 @@ const routes: RouteObject[] = [
         ),
       },
       {
-        path: `${paths.home}`,
+        path: paths.home,
         element: (
           <Suspense>
             <LazyAnimalsListPage />
