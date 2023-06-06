@@ -19,7 +19,7 @@ const AnimalCard = ({ animal }: AnimalCardProps): React.ReactElement => {
             height={204}
           />
           <div className="animal-card__info">
-            <h3 className="animal-card__title">{animal.name}</h3>
+            <h2 className="animal-card__title">{animal.name}</h2>
             <img
               className="animal-card__icon"
               src="images/location.svg"
