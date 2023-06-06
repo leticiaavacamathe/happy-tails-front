@@ -5,11 +5,13 @@ import Layout from "../Layout/Layout";
 import { useEffect } from "react";
 import { loginUserActionCreator } from "../../store/user/userSlice";
 import { UserTokenStructure } from "../../store/user/types";
+import { useNavigate } from "react-router-dom";
 
 const App = (): React.ReactElement => {
   const { getTokenData } = useToken();
   const { getToken } = useLocalStorage();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = getToken("token");
@@ -19,8 +21,10 @@ const App = (): React.ReactElement => {
       const userDataToken = { ...userData, token };
 
       dispatch(loginUserActionCreator(userDataToken as UserTokenStructure));
+      return;
     }
-  }, [dispatch, getToken, getTokenData]);
+    navigate("/login");
+  }, [dispatch, getToken, getTokenData, navigate]);
 
   return <Layout />;
 };
