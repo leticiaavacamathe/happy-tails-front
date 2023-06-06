@@ -14,4 +14,18 @@ describe("Given a Layout component", () => {
       expect(altText).toBeInTheDocument();
     });
   });
+
+  describe("When it is rendered but it takes time to redirect to the following page", () => {
+    test("Then it should a loading spinner", () => {
+      const expectedLabelText = "loader-spinner";
+
+      renderWithProviders(wrapWithRouter(<Layout />), {
+        ui: { isLoading: true },
+      });
+
+      const loadingSpinner = screen.getByLabelText(expectedLabelText);
+
+      expect(loadingSpinner).toBeInTheDocument();
+    });
+  });
 });

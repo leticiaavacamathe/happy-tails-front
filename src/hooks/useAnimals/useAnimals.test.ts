@@ -23,7 +23,7 @@ describe("Given a getAnimals function", () => {
     });
   });
 
-  describe("When it's called but can't connet to the Api Rest", () => {
+  describe("When it's called but can't connect to the Api Rest", () => {
     test("Then it should throw a 'Can't get the list of animals' error", () => {
       server.resetHandlers(...errorHandlers);
 
