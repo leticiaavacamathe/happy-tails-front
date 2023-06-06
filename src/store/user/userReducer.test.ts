@@ -1,7 +1,8 @@
 import {
   LoggedUserStateMock,
-  UserTokenDataMock,
+  UserTokenMock,
   initialUserStateMock,
+  mockExpectedNewState,
 } from "../../mocks/userMocks";
 import {
   loginUserActionCreator,
@@ -18,22 +19,20 @@ describe("Given a userReducer", () => {
 
       const newUserState = userReducer(
         currentUserState,
-        loginUserActionCreator(UserTokenDataMock)
+        loginUserActionCreator(UserTokenMock)
       );
       expect(newUserState).toStrictEqual(expectedNewUserState);
     });
   });
 
   describe("When it receives a user data and a logoutUser reducer", () => {
-    test("Then it should return the same user data with the 'isLogged' property set to false", () => {
-      const currentUserState = LoggedUserStateMock;
-
-      const newUserLogoutState = userReducer(
-        currentUserState,
+    test("Then it should return a new state with an unlogged empty user state", () => {
+      const newUserState = userReducer(
+        mockExpectedNewState,
         logoutUserActionCreator()
       );
 
-      expect(newUserLogoutState).toStrictEqual(initialUserStateMock);
+      expect(newUserState).toStrictEqual(initialUserStateMock);
     });
   });
 });

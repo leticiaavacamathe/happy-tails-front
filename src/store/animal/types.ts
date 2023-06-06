@@ -9,3 +9,7 @@ export interface AnimalDataStructure {
   weight: number;
   description: string;
 }
+
+export interface AnimalsApiResponse {
+  animals: AnimalDataStructure[];
+}

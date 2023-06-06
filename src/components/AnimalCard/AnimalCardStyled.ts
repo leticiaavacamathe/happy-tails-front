@@ -26,6 +26,7 @@ const AnimalCardStyled = styled.article`
 
     &__image {
       border-radius: 8px 8px 30px 8px;
+      object-fit: cover;
     }
 
     &__info {

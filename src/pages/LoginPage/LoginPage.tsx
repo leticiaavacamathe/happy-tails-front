@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import { useAppDispatch } from "../../store";
-import { UserCredentials } from "../../store/user/types";
+import { UserCredentials, UserTokenStructure } from "../../store/user/types";
 import { loginUserActionCreator } from "../../store/user/userSlice";
 import useUser from "../../hooks/useUser/useUser";
 import useToken from "../../hooks/useToken/useToken";
@@ -20,7 +20,8 @@ const LoginPage = (): React.ReactElement => {
 
     if (token) {
       const userLoginData = await getTokenData(token);
-      dispatch(loginUserActionCreator(userLoginData));
+      const userDataToken = { ...userLoginData, token };
+      dispatch(loginUserActionCreator(userDataToken as UserTokenStructure));
       setToken("token", token);
       navigate(paths.home);
     }
