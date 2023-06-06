@@ -2,7 +2,7 @@ import { AnimalDataStructure } from "../store/animal/types";
 
 export const animalsMocks: AnimalDataStructure[] = [
   {
-    id: "7fa87fds8",
+    id: "7fa87fds88",
     name: "Max",
     image:
       "https://cdn.discordapp.com/attachments/1096796306695008286/1115235077689966672/gato_1.jpg",
