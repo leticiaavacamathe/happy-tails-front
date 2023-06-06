@@ -1,5 +1,9 @@
 import { UiStructure } from "./types";
-import { showLoadingActionCreator, uiReducer } from "./uiSlice";
+import {
+  hideLoadingActionCreator,
+  showLoadingActionCreator,
+  uiReducer,
+} from "./uiSlice";
 
 describe("Given a showLoading minireducer", () => {
   describe("When it receives an ui state and a showLoading action", () => {
@@ -8,13 +12,31 @@ describe("Given a showLoading minireducer", () => {
         isLoading: false,
       };
 
-      const expectedState: UiStructure = {
+      const expectedUiState: UiStructure = {
         isLoading: true,
       };
 
       const newState = uiReducer(currentUiState, showLoadingActionCreator());
 
-      expect(newState).toStrictEqual(expectedState);
+      expect(newState).toStrictEqual(expectedUiState);
+    });
+  });
+});
+
+describe("Given a hideLoading minireducer", () => {
+  describe("When it receives an ui state and a hideLoading action", () => {
+    test("Then it should toggle the isLoading property to false", () => {
+      const currentUiState: UiStructure = {
+        isLoading: true,
+      };
+
+      const expectedUiState: UiStructure = {
+        isLoading: false,
+      };
+
+      const newState = uiReducer(currentUiState, hideLoadingActionCreator());
+
+      expect(newState).toStrictEqual(expectedUiState);
     });
   });
 });
