@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 const ModalStyled = styled.article`
   display: flex;
-  position: relative;
   color: ${(props) => props.theme.colors.fontMainColor};
 
   .modal {
     display: flex;
+    position: relative;
     align-items: end;
     width: 290px;
     height: 160px;

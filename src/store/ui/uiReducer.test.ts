@@ -10,10 +10,12 @@ describe("Given a showLoading minireducer", () => {
     test("Then it should toogle the isLoading property to true", () => {
       const currentUiState: UiStructure = {
         isLoading: false,
+        modal: { isError: true, text: "", isOn: true, title: "" },
       };
 
       const expectedUiState: UiStructure = {
         isLoading: true,
+        modal: { isError: true, text: "", isOn: true, title: "" },
       };
 
       const newState = uiReducer(currentUiState, showLoadingActionCreator());
@@ -28,10 +30,12 @@ describe("Given a hideLoading minireducer", () => {
     test("Then it should toggle the isLoading property to false", () => {
       const currentUiState: UiStructure = {
         isLoading: true,
+        modal: { isError: true, text: "", isOn: true, title: "" },
       };
 
       const expectedUiState: UiStructure = {
         isLoading: false,
+        modal: { isError: true, text: "", isOn: true, title: "" },
       };
 
       const newState = uiReducer(currentUiState, hideLoadingActionCreator());
