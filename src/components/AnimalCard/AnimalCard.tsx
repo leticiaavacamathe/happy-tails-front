@@ -4,15 +4,20 @@ import AnimalCardStyled from "./AnimalCardStyled";
 
 interface AnimalCardProps {
   animal: AnimalDataStructure;
+  isLazy?: "eager" | "lazy";
 }
 
-const AnimalCard = ({ animal }: AnimalCardProps): React.ReactElement => {
+const AnimalCard = ({
+  animal,
+  isLazy,
+}: AnimalCardProps): React.ReactElement => {
   return (
     <>
       <AnimalCardStyled>
         <div className="animal-card">
           <img
             className="animal-card__image"
+            loading={isLazy}
             src={animal.image}
             alt={animal.name}
             width={290}
