@@ -39,11 +39,9 @@ describe("Given a getUserToken function", () => {
         },
       } = renderHook(() => useUser(), { wrapper: wrapper });
 
-      const getToken = async () => {
-        await getUserToken(invalidUser);
-      };
+      const getToken = await getUserToken(invalidUser);
 
-      expect(getToken).rejects.toThrowError();
+      expect(getToken).toBeUndefined();
     });
   });
 });

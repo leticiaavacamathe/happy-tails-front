@@ -12,6 +12,8 @@ const theme: DefaultTheme = {
     primaryLight: "#B6acc5",
     light: "#fff",
     dark: "000",
+    correct: "#82b487",
+    error: "#f44b68",
   },
 
   fonts: {

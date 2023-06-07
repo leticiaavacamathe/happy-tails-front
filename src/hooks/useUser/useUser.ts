@@ -4,8 +4,10 @@ import paths from "../../routers/paths";
 import { useAppDispatch } from "../../store";
 import {
   hideLoadingActionCreator,
+  showFeedbackActionCreator,
   showLoadingActionCreator,
 } from "../../store/ui/uiSlice";
+import { wrongCredentials } from "../../components/Modal/feedback";
 
 const useUser = () => {
   const apiUrl = import.meta.env.VITE_APP_URL;
@@ -14,7 +16,7 @@ const useUser = () => {
 
   const getUserToken = async (
     userCredentials: UserCredentials
-  ): Promise<string> => {
+  ): Promise<string | undefined> => {
     try {
       dispatch(showLoadingActionCreator());
       const {
@@ -28,8 +30,16 @@ const useUser = () => {
 
       return token;
     } catch {
-      const error = new Error("Wrong credentials");
-      throw error;
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        showFeedbackActionCreator({
+          isError: true,
+          isOn: true,
+          title: wrongCredentials.title,
+          text: wrongCredentials.text,
+        })
+      ),
+        [dispatch];
     }
   };
   return { getUserToken };

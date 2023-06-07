@@ -13,6 +13,8 @@ declare module "styled-components" {
       dark: string;
       fontMainColor: string;
       primaryLight: string;
+      correct: string;
+      error: string;
     };
 
     fonts: {
