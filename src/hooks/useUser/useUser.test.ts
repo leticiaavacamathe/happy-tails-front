@@ -4,6 +4,7 @@ import { tokenMock, userCredentialsMock } from "../../mocks/userMocks.js";
 import { server } from "../../mocks/server.js";
 import { UserCredentials } from "../../store/user/types.js";
 import { errorHandlers } from "../../mocks/handlers.js";
+import { wrapper } from "../../testUtils/testUtils.js";
 
 describe("Given a getUserToken function", () => {
   describe("When it is called with the username 'admin' and the password 'admin'", () => {
@@ -15,7 +16,7 @@ describe("Given a getUserToken function", () => {
         result: {
           current: { getUserToken },
         },
-      } = renderHook(() => useUser());
+      } = renderHook(() => useUser(), { wrapper: wrapper });
 
       const token = await getUserToken(user);
 
@@ -36,7 +37,7 @@ describe("Given a getUserToken function", () => {
         result: {
           current: { getUserToken },
         },
-      } = renderHook(() => useUser());
+      } = renderHook(() => useUser(), { wrapper: wrapper });
 
       const getToken = async () => {
         await getUserToken(invalidUser);
