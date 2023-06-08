@@ -13,12 +13,12 @@ const Layout = (): React.ReactElement => {
 
   return (
     <>
-      {isLoading && <Loader />}
-      {isOn && <Modal />}
       <ContainerStyled>
         {pathname !== "/login" && <Header />}
         <Outlet />
       </ContainerStyled>
+      {isLoading && <Loader />}
+      {isOn && <Modal />}
     </>
   );
 };

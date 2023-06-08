@@ -27,7 +27,7 @@ describe("Given a getAnimals function", () => {
     test("Then it should throw a 'Can't get the list of animals' error", () => {
       server.resetHandlers(...errorHandlers);
 
-      const expectedError = "Can't get the list of Animals";
+      const expectedError = "Can't get the list of animals";
 
       const {
         result: {

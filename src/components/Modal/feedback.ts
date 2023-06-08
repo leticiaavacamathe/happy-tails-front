@@ -48,3 +48,10 @@ export const wrongCredentials: ModalStructure = {
   text: "Incorrect username or password please try again",
   isOn: false,
 };
+
+export const notLoadAnimals: ModalStructure = {
+  isError: true,
+  title: "Something went wrong",
+  text: "Can't get the list of animals please try again later",
+  isOn: false,
+};
