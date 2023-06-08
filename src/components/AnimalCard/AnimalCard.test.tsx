@@ -9,7 +9,14 @@ describe("Given a AnimalCard component", () => {
       const expectedAltText = animalsMocks[0].name;
 
       renderWithProviders(
-        wrapWithRouter(<AnimalCard animal={animalsMocks[0]} />)
+        wrapWithRouter(
+          <AnimalCard
+            animal={animalsMocks[0]}
+            isLazy={
+              animalsMocks.indexOf(animalsMocks[0]) < 1 ? "eager" : "lazy"
+            }
+          />
+        )
       );
 
       const image = screen.getByRole("img", { name: expectedAltText });
