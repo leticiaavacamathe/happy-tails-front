@@ -14,6 +14,16 @@ const AnimalsListPage = (): React.ReactElement => {
       const animals = await getAnimals();
       if (animals) {
         dispatch(loadAnimalsActionCreator(animals));
+
+        const preconnectElement = await document.createElement("link");
+        preconnectElement.rel = "preload";
+        preconnectElement.as = "image";
+        preconnectElement.href = animals[0].image;
+
+        const parent = document.head;
+        const firstChild = document.head.firstChild;
+
+        parent.insertBefore(preconnectElement, firstChild);
       }
     })();
   }, [dispatch, getAnimals]);
