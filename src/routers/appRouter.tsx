@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { LazyAnimalsListPage, LazyLoginPage } from "./lazyComponents";
 import App from "../components/App/App";
 import paths from "./paths";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 
 const routes: RouteObject[] = [
   {
@@ -31,8 +32,8 @@ const routes: RouteObject[] = [
         ),
       },
       {
-        path: "*",
-        element: <p>Page not found</p>,
+        path: "/*",
+        element: <NotFoundPage />,
       },
     ],
   },
