@@ -6,7 +6,7 @@ const Header = (): React.ReactElement => {
     <HeaderStyled>
       <img
         className="header-logo"
-        src="images/happy-tails-logo.webp"
+        src="images/happy-tails.svg"
         alt="happy tails logo"
         width={67}
         height={66}
