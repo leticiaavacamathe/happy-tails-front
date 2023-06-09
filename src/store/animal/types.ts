@@ -13,3 +13,7 @@ export interface AnimalDataStructure {
 export interface AnimalsApiResponse {
   animals: AnimalDataStructure[];
 }
+
+export interface AnimalIdStructure {
+  idAnimal: string;
+}

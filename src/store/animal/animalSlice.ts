@@ -1,5 +1,9 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { AnimalDataStructure } from "./types";
+import {
+  AnimalDataStructure,
+  AnimalIdStructure,
+  AnimalsApiResponse,
+} from "./types";
 
 export interface AnimalState {
   animals: AnimalDataStructure[];
@@ -20,8 +24,21 @@ const animalSlice = createSlice({
       ...currentAnimalState,
       animals: [...action.payload],
     }),
+
+    deleteAnimal: (
+      currentAnimalState: AnimalsApiResponse,
+      action: PayloadAction<AnimalIdStructure>
+    ): AnimalsApiResponse => ({
+      ...currentAnimalState,
+      animals: currentAnimalState.animals.filter(
+        (animal) => animal.id !== action.payload.idAnimal
+      ),
+    }),
   },
 });
 
-export const { loadAnimals: loadAnimalsActionCreator } = animalSlice.actions;
+export const {
+  loadAnimals: loadAnimalsActionCreator,
+  deleteAnimal: deleteAnimalActionCreator,
+} = animalSlice.actions;
 export const animalReducer = animalSlice.reducer;
