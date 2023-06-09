@@ -10,7 +10,7 @@ export interface AnimalDataStructure {
   description: string;
 }
 
-export interface AnimalsApiResponse {
+export interface AnimalsStateStructure {
   animals: AnimalDataStructure[];
 }
 

@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "../../store";
 import {
   AnimalDataStructure,
-  AnimalsApiResponse,
+  AnimalsStateStructure,
 } from "../../store/animal/types";
 import axios from "axios";
 import paths from "../../routers/paths";
@@ -26,7 +26,7 @@ const useAnimals = () => {
       dispatch(showLoadingActionCreator());
       const {
         data: { animals },
-      } = await axios.get<AnimalsApiResponse>(`${apiUrl}${paths.animals}`, {
+      } = await axios.get<AnimalsStateStructure>(`${apiUrl}${paths.animals}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(hideLoadingActionCreator());

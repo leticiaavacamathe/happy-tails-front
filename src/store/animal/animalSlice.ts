@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import {
   AnimalDataStructure,
   AnimalIdStructure,
-  AnimalsApiResponse,
+  AnimalsStateStructure,
 } from "./types";
 
 export interface AnimalState {
@@ -26,9 +26,9 @@ const animalSlice = createSlice({
     }),
 
     deleteAnimal: (
-      currentAnimalState: AnimalsApiResponse,
+      currentAnimalState: AnimalsStateStructure,
       action: PayloadAction<AnimalIdStructure>
-    ): AnimalsApiResponse => ({
+    ): AnimalsStateStructure => ({
       ...currentAnimalState,
       animals: currentAnimalState.animals.filter(
         (animal) => animal.id !== action.payload.idAnimal
