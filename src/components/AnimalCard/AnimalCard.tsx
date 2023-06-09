@@ -4,11 +4,13 @@ import AnimalCardStyled from "./AnimalCardStyled";
 
 interface AnimalCardProps {
   animal: AnimalDataStructure;
+  actionOnClick: (idAnimal: string) => void;
   isLazy?: "eager" | "lazy";
 }
 
 const AnimalCard = ({
   animal,
+  actionOnClick,
   isLazy,
 }: AnimalCardProps): React.ReactElement => {
   return (
@@ -36,6 +38,7 @@ const AnimalCard = ({
             <Button
               className="animal-card__button"
               accesibility="delete button"
+              onClick={() => actionOnClick(animal.id)}
             >
               <img
                 className="animal-card__buton__delete"

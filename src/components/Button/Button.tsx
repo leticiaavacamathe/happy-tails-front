@@ -4,7 +4,7 @@ import ButtonStyled from "./ButtonStyled";
 interface ButtonProps {
   className?: string;
   text?: string;
-  actionOnClick?: () => void;
+  onClick?: () => void;
   children?: React.ReactElement;
   accesibility?: string;
 }
@@ -12,7 +12,7 @@ interface ButtonProps {
 const Button = ({
   text,
   className,
-  actionOnClick,
+  onClick: onClick,
   children,
   accesibility,
 }: ButtonProps): React.ReactElement => {
@@ -20,7 +20,7 @@ const Button = ({
     <ButtonStyled
       className={className}
       aria-label={accesibility}
-      onClick={actionOnClick}
+      onClick={onClick}
     >
       {text}
       {children}
