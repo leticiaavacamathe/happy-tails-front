@@ -11,6 +11,7 @@ describe("Given a AnimalCard component", () => {
       renderWithProviders(
         wrapWithRouter(
           <AnimalCard
+            actionOnClick={() => ({})}
             animal={animalsMocks[0]}
             isLazy={
               animalsMocks.indexOf(animalsMocks[0]) < 1 ? "eager" : "lazy"
