@@ -22,7 +22,7 @@ describe("Given a AnimalsList component", () => {
     });
   });
 
-  describe("When it is rendered and a delete button is clicked", () => {
+  describe("When it is rendered with a list of animals and a delete button is clicked", () => {
     test("Then it should show a list of animals without the animal deleted", async () => {
       const animalsStore = {
         animal: {

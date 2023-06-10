@@ -11,7 +11,11 @@ import {
   showFeedbackActionCreator,
   showLoadingActionCreator,
 } from "../../store/ui/uiSlice";
-import { notLoadAnimals } from "../../components/Modal/feedback";
+import {
+  deleteModal,
+  notDeleteModal,
+  notLoadAnimals,
+} from "../../components/Modal/feedback";
 
 const apiUrl = import.meta.env.VITE_APP_URL;
 
@@ -24,15 +28,19 @@ const useAnimals = () => {
   > => {
     try {
       dispatch(showLoadingActionCreator());
+
       const {
         data: { animals },
       } = await axios.get<AnimalsStateStructure>(`${apiUrl}${paths.animals}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
+
       dispatch(hideLoadingActionCreator());
+
       return animals;
     } catch (error) {
       dispatch(hideLoadingActionCreator());
+
       dispatch(
         showFeedbackActionCreator({
           isError: true,
@@ -44,7 +52,40 @@ const useAnimals = () => {
       throw new Error("Can't get the list of animals");
     }
   }, [dispatch, token]);
-  return { getAnimals };
+
+  const deleteAnimal = async (idAnimal: string) => {
+    try {
+      dispatch(showLoadingActionCreator());
+
+      await axios.delete(`${apiUrl}${paths.animals}/${idAnimal}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      dispatch(hideLoadingActionCreator());
+
+      dispatch(
+        showFeedbackActionCreator({
+          isError: false,
+          isOn: true,
+          title: deleteModal.title,
+          text: deleteModal.text,
+        })
+      );
+    } catch (error) {
+      dispatch(hideLoadingActionCreator());
+
+      dispatch(
+        showFeedbackActionCreator({
+          isError: true,
+          isOn: true,
+          title: notDeleteModal.title,
+          text: notDeleteModal.text,
+        })
+      );
+    }
+  };
+
+  return { getAnimals, deleteAnimal };
 };
 
 export default useAnimals;
