@@ -1,10 +1,11 @@
 import React from "react";
+import AddAnimalPageStyled from "./AddAnimalPageStyled";
 
 const AddAnimalPage = (): React.ReactElement => {
   return (
-    <main>
-      <h1>Lets find a home</h1>
-    </main>
+    <AddAnimalPageStyled>
+      <h1>Let&apos;s find a home</h1>
+    </AddAnimalPageStyled>
   );
 };
 
