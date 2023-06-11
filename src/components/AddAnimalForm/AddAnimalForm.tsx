@@ -1,13 +1,19 @@
+import AddAnimalFormStyled from "./AddAnimalFormStyled";
+
 const AddAnimalForm = () => {
   return (
-    <form>
+    <AddAnimalFormStyled>
       <div className="add-form-control">
         <label className="add-form-control__label" htmlFor="type">
           Type of animal
         </label>
-        <select id="type" className="add-form-control__input">
-          <option value="cat">Dog</option>
-          <option value="dog">Cat</option>
+        <select id="type" className="add-form-control__type">
+          <option className="add-form-control__type__option" value="cat">
+            Dog
+          </option>
+          <option className="add-form-control__type__option" value="dog">
+            Cat
+          </option>
         </select>
       </div>
       <div className="add-form-control">
@@ -50,14 +56,16 @@ const AddAnimalForm = () => {
         <label className="add-form-control__label" htmlFor="description">
           Description
         </label>
-        <input
-          type="text"
-          className="add-form-control__input"
+        <textarea
+          name="description"
           id="description"
-        />
+          className="add-form-control__description"
+        ></textarea>
       </div>
-      <button>Create</button>
-    </form>
+      <div className="add-form-button">
+        <button className="add-form-button__button">Create</button>
+      </div>
+    </AddAnimalFormStyled>
   );
 };
 
