@@ -8,6 +8,7 @@ import {
 } from "./lazyComponents";
 import App from "../components/App/App";
 import paths from "./paths";
+import AddAnimalPage from "../pages/AddAnimalPage/AddAnimalPage";
 
 const routes: RouteObject[] = [
   {
@@ -33,6 +34,10 @@ const routes: RouteObject[] = [
             <LazyAnimalsListPage />
           </Suspense>
         ),
+      },
+      {
+        path: paths.add,
+        element: <AddAnimalPage />,
       },
       {
         path: "*",
