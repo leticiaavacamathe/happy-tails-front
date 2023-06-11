@@ -8,10 +8,16 @@ const AddAnimalPageStyled = styled.main`
   justify-content: center;
   flex-direction: column;
   color: ${(props) => props.theme.colors.fontMainColor};
-  font-weight: ${(props) => props.theme.fontWeights.bold};
 
   h1 {
     font-size: ${(props) => props.theme.fontSizes.medium};
+    font-weight: ${(props) => props.theme.fontWeights.bold};
+  }
+
+  p {
+    font-weight: ${(props) => props.theme.fontWeights.medium};
+    padding: 10px;
+    text-align: center;
   }
 `;
 export default AddAnimalPageStyled;
