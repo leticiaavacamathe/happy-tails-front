@@ -41,3 +41,16 @@ export const animalMock: AnimalDataStructure[] = [
     description: "Max is a very nice dog, he likes to play a lot",
   },
 ];
+
+export const animalSingleMock: AnimalDataStructure = {
+  id: "7fa87fds88",
+  name: "Max",
+  image:
+    "https://cdn.discordapp.com/attachments/1096796306695008286/1115235077689966672/gato_1.jpg",
+  type: "dog",
+  age: 5,
+  city: "Barcelona",
+  sex: "Male",
+  weight: 15,
+  description: "Max is a very nice dog, he likes to play a lot",
+};

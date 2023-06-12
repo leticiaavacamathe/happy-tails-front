@@ -23,7 +23,7 @@ describe("Given a deleteAnimal function", () => {
         },
       } = renderHook(() => useAnimals(), { wrapper: wrapper });
 
-      await deleteAnimal(idAnimal);
+      await deleteAnimal(idAnimal as string);
 
       const message = store.getState().ui.modal.text;
 
@@ -43,7 +43,7 @@ describe("Given a deleteAnimal function", () => {
         },
       } = renderHook(() => useAnimals(), { wrapper: wrapper });
 
-      await deleteAnimal(idAnimal);
+      await deleteAnimal(idAnimal as string);
 
       const message = store.getState().ui.modal.text;
 
