@@ -1,6 +1,7 @@
 import { animalsMocks } from "../../mocks/animalMocks";
 import {
   AnimalState,
+  addAnimalActionCreator,
   animalReducer,
   deleteAnimalActionCreator,
   loadAnimalsActionCreator,
@@ -44,6 +45,21 @@ describe("Given a animalReducer", () => {
       );
 
       expect(newAnimalState).toStrictEqual(expectedNewAnimalState);
+    });
+  });
+
+  describe("When it receives a list of animals and a new animal and it's data", () => {
+    test("Then it should return a new state of the list with the new animal that was created", () => {
+      const currentAnimalsState: AnimalsStateStructure = {
+        animals: [animalsMocks[0]],
+      };
+
+      const newAnimalState: AnimalsStateStructure = animalReducer(
+        currentAnimalsState,
+        addAnimalActionCreator(animalsMocks[1])
+      );
+
+      expect(newAnimalState).toStrictEqual({ animals: animalsMocks });
     });
   });
 });
