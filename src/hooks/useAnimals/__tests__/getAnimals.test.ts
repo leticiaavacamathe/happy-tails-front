@@ -4,11 +4,12 @@ import useAnimals from "../useAnimals";
 import { wrapper } from "../../../testUtils/testUtils";
 import { AnimalDataStructure } from "../../../store/animal/types";
 import { server } from "../../../mocks/server";
-import { errorHandlers } from "../../../mocks/handlers";
+import { errorHandlers, handlers } from "../../../mocks/handlers";
 
 describe("Given a getAnimals function", () => {
   describe("When it is called", () => {
     test("then it should return a list of animals", async () => {
+      server.resetHandlers(...handlers);
       const expectedAnimalsList: AnimalDataStructure[] = animalsMocks;
 
       const {

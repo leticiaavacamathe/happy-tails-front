@@ -38,6 +38,10 @@ export const errorHandlers = [
     return res(ctx.status(401));
   }),
 
+  rest.get(`${apiUrl}/animals`, (_req, res, ctx) => {
+    return res(ctx.status(404));
+  }),
+
   rest.delete(`${apiUrl}${paths.animals}/*`, (_req, res, ctx) => {
     return res(
       ctx.status(404),

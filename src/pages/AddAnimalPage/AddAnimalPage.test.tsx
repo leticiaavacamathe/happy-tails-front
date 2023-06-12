@@ -29,7 +29,7 @@ describe("Given a AddAnimalPage page", () => {
   });
 
   describe("When it is rendered and the handleOnClick function is invoked", () => {
-    test("Then it should redirect the user to the home page and show the title 'Max'", async () => {
+    test("Then it should redirect the user to the home page and show the title 'Adopt me'", async () => {
       const expectedTitle = "Adopt me";
 
       const routes: RouteObject[] = [
