@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import paths from "../../routers/paths";
+import AnimalsListPage from "../AnimalsListPage/AnimalsListPage";
 
 describe("Given a LoginPage page", () => {
   describe("When it is rendered", () => {
@@ -37,6 +38,7 @@ describe("Given a LoginPage page", () => {
         },
         {
           path: "/home",
+          element: <AnimalsListPage />,
         },
       ];
 

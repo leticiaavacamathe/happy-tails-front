@@ -34,11 +34,20 @@ const animalSlice = createSlice({
         (animal) => animal.id !== action.payload.idAnimal
       ),
     }),
+
+    addAnimal: (
+      currentAnimalState: AnimalsStateStructure,
+      action: PayloadAction<AnimalDataStructure>
+    ): AnimalsStateStructure => ({
+      ...currentAnimalState,
+      animals: [...currentAnimalState.animals, action.payload],
+    }),
   },
 });
 
 export const {
   loadAnimals: loadAnimalsActionCreator,
   deleteAnimal: deleteAnimalActionCreator,
+  addAnimal: addAnimalActionCreator,
 } = animalSlice.actions;
 export const animalReducer = animalSlice.reducer;

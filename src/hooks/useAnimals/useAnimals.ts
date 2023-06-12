@@ -12,7 +12,9 @@ import {
   showLoadingActionCreator,
 } from "../../store/ui/uiSlice";
 import {
+  createModal,
   deleteModal,
+  notCreateModal,
   notDeleteModal,
   notLoadAnimals,
 } from "../../components/Modal/feedback";
@@ -85,7 +87,46 @@ const useAnimals = () => {
     }
   };
 
-  return { getAnimals, deleteAnimal };
+  const addAnimal = async (animalData: Partial<AnimalDataStructure>) => {
+    try {
+      dispatch(showLoadingActionCreator());
+      const request = {
+        headers: { Authorization: `Bearer ${token}` },
+      };
+
+      const { data } = await axios.post<{ animal: AnimalDataStructure }>(
+        `${apiUrl}${paths.animals}${paths.add}`,
+        animalData,
+        request
+      );
+
+      dispatch(hideLoadingActionCreator());
+
+      dispatch(
+        showFeedbackActionCreator({
+          isError: false,
+          isOn: true,
+          title: createModal.title,
+          text: createModal.text,
+        })
+      );
+
+      return data.animal;
+    } catch (error) {
+      dispatch(hideLoadingActionCreator());
+
+      dispatch(
+        showFeedbackActionCreator({
+          isError: true,
+          isOn: true,
+          title: notCreateModal.title,
+          text: notCreateModal.text,
+        })
+      );
+    }
+  };
+
+  return { getAnimals, deleteAnimal, addAnimal };
 };
 
 export default useAnimals;
