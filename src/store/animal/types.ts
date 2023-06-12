@@ -20,6 +20,7 @@ export interface AnimalInfoStructure {
   sex: string;
   weight: number;
   description: string;
+  user?: string;
 }
 
 export interface AnimalsStateStructure {
@@ -28,4 +29,8 @@ export interface AnimalsStateStructure {
 
 export interface AnimalIdStructure {
   idAnimal: string;
+}
+
+export interface AnimalCreateResponse {
+  animal: AnimalDataStructure;
 }
