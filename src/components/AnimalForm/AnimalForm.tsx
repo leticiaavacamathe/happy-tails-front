@@ -1,45 +1,58 @@
 import React, { useState } from "react";
 import AddAnimalFormStyled from "./AnimalFormStyled";
-import { AnimalInfoStructure } from "../../store/animal/types";
+import {
+  AnimalInfoStructure as AnimalDataStructure,
+  AnimalInfoStructure,
+} from "../../store/animal/types";
 
-const AnimalForm = (): React.ReactElement => {
+interface AnimalFormProps {
+  submitAnimalForm: (animalData: Partial<AnimalDataStructure>) => void;
+}
+
+const AnimalForm = ({
+  submitAnimalForm,
+}: AnimalFormProps): React.ReactElement => {
   const initialAnimalState: AnimalInfoStructure = {
     name: "",
     age: 0,
     city: "",
     description: "",
     image: "",
-    sex: "",
-    type: "",
+    sex: "male",
+    type: "dog",
     weight: 0,
   };
 
-  const [newAnimal, setNewAnimal] =
-    useState<AnimalInfoStructure>(initialAnimalState);
+  const [animalData, setAnimalData] = useState(initialAnimalState);
 
   const handleOnChange = (
     event: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) => {
-    setNewAnimal({
-      ...newAnimal,
+    setAnimalData({
+      ...animalData,
       [event.target.id]: event.target.value,
     });
   };
 
+  const handleOnSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    submitAnimalForm(animalData);
+  };
+
   const isCompleated =
-    newAnimal.name !== "" &&
-    newAnimal.city !== "" &&
-    newAnimal.description !== "" &&
-    newAnimal.image !== "" &&
-    newAnimal.weight !== 0 &&
-    newAnimal.age !== 0 &&
-    newAnimal.type !== "" &&
-    newAnimal.sex !== "";
+    animalData.name !== "" &&
+    animalData.city !== "" &&
+    animalData.description !== "" &&
+    animalData.image !== "" &&
+    animalData.weight !== 0 &&
+    animalData.age !== 0 &&
+    animalData.type !== "" &&
+    animalData.sex !== "";
 
   return (
-    <AddAnimalFormStyled autoComplete="off">
+    <AddAnimalFormStyled autoComplete="off" onSubmit={handleOnSubmit}>
       <div className="add-form-control">
         <label className="add-form-control__label" htmlFor="type">
           Type of animal
@@ -48,7 +61,7 @@ const AnimalForm = (): React.ReactElement => {
           id="type"
           className="add-form-control__type"
           onChange={handleOnChange}
-          value={newAnimal.type}
+          value={animalData.type}
         >
           <option className="add-form-control__type__option" value="dog">
             Dog
@@ -64,7 +77,7 @@ const AnimalForm = (): React.ReactElement => {
         </label>
         <input
           type="text"
-          value={newAnimal.name}
+          value={animalData.name}
           className="add-form-control__input"
           id="name"
           onChange={handleOnChange}
@@ -75,7 +88,7 @@ const AnimalForm = (): React.ReactElement => {
           City
         </label>
         <input
-          value={newAnimal.city}
+          value={animalData.city}
           type="text"
           className="add-form-control__input"
           id="city"
@@ -88,7 +101,7 @@ const AnimalForm = (): React.ReactElement => {
         </label>
         <input
           type="number"
-          value={newAnimal.age}
+          value={animalData.age}
           className="add-form-control__input"
           id="age"
           onChange={handleOnChange}
@@ -98,20 +111,26 @@ const AnimalForm = (): React.ReactElement => {
         <label className="add-form-control__label" htmlFor="sex">
           Sex
         </label>
-        <input
-          value={newAnimal.sex}
-          type="text"
-          className="add-form-control__input"
+        <select
           id="sex"
+          className="add-form-control__type"
           onChange={handleOnChange}
-        />
+          value={animalData.sex}
+        >
+          <option className="add-form-control__type__option" value="male">
+            Male
+          </option>
+          <option className="add-form-control__type__option" value="female">
+            Female
+          </option>
+        </select>
       </div>
       <div className="add-form-control">
         <label className="add-form-control__label" htmlFor="weight">
           Weight (kg)
         </label>
         <input
-          value={newAnimal.weight}
+          value={animalData.weight}
           type="number"
           className="add-form-control__input"
           id="weight"
@@ -123,7 +142,7 @@ const AnimalForm = (): React.ReactElement => {
           URL image
         </label>
         <input
-          value={newAnimal.image}
+          value={animalData.image}
           type="url"
           className="add-form-control__input"
           id="image"
@@ -135,7 +154,7 @@ const AnimalForm = (): React.ReactElement => {
           Description
         </label>
         <textarea
-          value={newAnimal.description}
+          value={animalData.description}
           name="description"
           id="description"
           className="add-form-control__description"
