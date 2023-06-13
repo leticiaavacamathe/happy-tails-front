@@ -25,6 +25,7 @@ export interface AnimalInfoStructure {
 
 export interface AnimalsStateStructure {
   animals: AnimalDataStructure[];
+  selectedAnimal?: AnimalDataStructure;
 }
 
 export interface AnimalIdStructure {

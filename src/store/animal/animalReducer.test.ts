@@ -1,10 +1,11 @@
-import { animalsMocks } from "../../mocks/animalMocks";
+import { animalSingleMock, animalsMocks } from "../../mocks/animalMocks";
 import {
   AnimalState,
   addAnimalActionCreator,
   animalReducer,
   deleteAnimalActionCreator,
   loadAnimalsActionCreator,
+  loadSelectedAnimalActionCreator,
 } from "./animalSlice";
 import { AnimalDataStructure, AnimalsStateStructure } from "./types";
 
@@ -60,6 +61,26 @@ describe("Given a animalReducer", () => {
       );
 
       expect(newAnimalState).toStrictEqual({ animals: animalsMocks });
+    });
+  });
+
+  describe("When it receives a list of animals as a current state, a valid id and a loadSelectedAnimal action", () => {
+    test("Then it should return a new state with the selected", () => {
+      const currentAnimalsState: AnimalsStateStructure = {
+        animals: animalsMocks,
+      };
+
+      const expectedAnimalState = {
+        ...currentAnimalsState,
+        selectedAnimal: animalSingleMock,
+      };
+
+      const newAnimalsState = animalReducer(
+        currentAnimalsState,
+        loadSelectedAnimalActionCreator(animalSingleMock)
+      );
+
+      expect(expectedAnimalState).toStrictEqual(newAnimalsState);
     });
   });
 });
