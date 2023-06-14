@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { animalMock, animalsMocks } from "../../mocks/animalMocks";
+import { animalMock, fiveAnimalsMocks } from "../../mocks/animalMocks";
 import { renderWithProviders, wrapWithRouter } from "../../testUtils/testUtils";
 import AnimalsList from "./AnimalsList";
 import userEvent from "@testing-library/user-event";
@@ -9,10 +9,10 @@ describe("Given a AnimalsList component", () => {
     test("Then it should show the name of that card 'max' inside a heading", () => {
       const animalsStore = {
         animal: {
-          animals: animalsMocks,
+          animals: fiveAnimalsMocks,
         },
       };
-      const expectedText = animalsMocks[0].name;
+      const expectedText = fiveAnimalsMocks[0].name;
 
       renderWithProviders(wrapWithRouter(<AnimalsList />), animalsStore);
 
