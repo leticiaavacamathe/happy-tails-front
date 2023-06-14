@@ -65,14 +65,14 @@ describe("Given a animalReducer", () => {
   });
 
   describe("When it receives a list of animals as a current state, a valid id and a loadSelectedAnimal action", () => {
-    test("Then it should return a new state with the selected", () => {
+    test("Then it should return a new state with the selected animal", () => {
       const currentAnimalsState: AnimalsStateStructure = {
         animals: animalsMocks,
       };
 
       const expectedAnimalState = {
         ...currentAnimalsState,
-        selectedAnimal: animalSingleMock,
+        animalById: animalSingleMock,
       };
 
       const newAnimalsState = animalReducer(

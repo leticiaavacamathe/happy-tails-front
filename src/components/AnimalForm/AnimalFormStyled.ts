@@ -32,6 +32,7 @@ const AddAnimalFormStyled = styled.form`
       width: 304px;
       height: 100px;
       border-radius: 7px;
+      font-family: ${(props) => props.theme.fonts.primary};
       background-color: ${(props) => props.theme.colors.backgroundPrimary};
       color: ${(props) => props.theme.colors.fontMainColor};
       font-size: ${(props) => props.theme.fontSizes.small};

@@ -7,6 +7,7 @@ import {
 
 export interface AnimalState {
   animals: AnimalDataStructure[];
+  animalById?: AnimalDataStructure;
 }
 
 export const initialAnimalState: AnimalState = {
@@ -44,11 +45,11 @@ const animalSlice = createSlice({
     }),
 
     loadSelectedAnimal: (
-      currentAnimalsState: AnimalsStateStructure,
+      currentAnimalState: AnimalsStateStructure,
       action: PayloadAction<AnimalDataStructure>
     ) => ({
-      ...currentAnimalsState,
-      selectedAnimal: action.payload,
+      ...currentAnimalState,
+      animalById: action.payload,
     }),
   },
 });

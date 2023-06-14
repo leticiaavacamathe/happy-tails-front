@@ -18,11 +18,11 @@ const NavBar = (): React.ReactElement => {
 
   return (
     <NavBarStyled>
-      <ul>
+      <ul className="navLink">
         <li>
           <NavLink to="/home" title="Home" aria-label="home">
             <img
-              src="images/home-icon.svg"
+              src="/images/home-icon.svg"
               alt="home icon"
               width={48}
               height={48}
@@ -32,7 +32,7 @@ const NavBar = (): React.ReactElement => {
         <li>
           <NavLink to="/add" title="Add" aria-label="add">
             <img
-              src="images/add-icon.svg"
+              src="/images/add-icon.svg"
               alt="add icon"
               width={48}
               height={48}
@@ -42,7 +42,7 @@ const NavBar = (): React.ReactElement => {
         <li>
           <button aria-label="logout" onClick={logoutonClick}>
             <img
-              src="images/logout-icon.svg"
+              src="/images/logout-icon.svg"
               alt="logout icon"
               width={48}
               height={48}

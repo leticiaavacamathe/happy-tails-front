@@ -29,7 +29,15 @@ describe("Given a AnimalsList component", () => {
           animals: animalMock,
         },
       };
-      renderWithProviders(wrapWithRouter(<AnimalsList />), animalsStore);
+      renderWithProviders(wrapWithRouter(<AnimalsList />), {
+        user: {
+          id: "64708476cb971c1010a20464",
+          isLogged: true,
+          name: "",
+          token: "",
+        },
+        animal: animalsStore.animal,
+      });
 
       const title = screen.getByRole("heading", { name: "Max" });
 

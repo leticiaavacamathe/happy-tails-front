@@ -16,6 +16,7 @@ import {
   deleteModal,
   notCreateModal,
   notDeleteModal,
+  notLoadAnimal,
   notLoadAnimals,
 } from "../../components/Modal/feedback";
 
@@ -126,7 +127,41 @@ const useAnimals = () => {
     }
   };
 
-  return { getAnimals, deleteAnimal, addAnimal };
+  const getAnimal = useCallback(
+    async (
+      idAnimal: string | undefined
+    ): Promise<AnimalDataStructure | undefined> => {
+      try {
+        dispatch(showLoadingActionCreator());
+
+        const {
+          data: { animal },
+        } = await axios.get<{ animal: AnimalDataStructure }>(
+          `${apiUrl}${paths.animals}/${idAnimal}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+
+        dispatch(hideLoadingActionCreator());
+
+        return animal;
+      } catch {
+        const error = "Animal not found";
+
+        dispatch(
+          showFeedbackActionCreator({
+            isError: true,
+            isOn: true,
+            title: notLoadAnimal.title,
+            text: error,
+          })
+        );
+      }
+    },
+    [dispatch, token]
+  );
+  return { getAnimals, deleteAnimal, addAnimal, getAnimal };
 };
 
 export default useAnimals;
