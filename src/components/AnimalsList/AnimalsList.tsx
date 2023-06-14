@@ -19,7 +19,7 @@ const AnimalsList = (): React.ReactElement => {
       {animals.map((animal, index) => (
         <li key={animal.id}>
           <AnimalCard
-            isLazy={index < 1 ? "eager" : "lazy"}
+            isLazy={index < 4 ? "eager" : "lazy"}
             animal={animal}
             actionOnClick={deleteOnClick}
           />

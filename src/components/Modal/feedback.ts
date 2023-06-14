@@ -55,3 +55,10 @@ export const notLoadAnimals: ModalStructure = {
   text: "Can't get the list of animals please try again later",
   isOn: false,
 };
+
+export const notLoadAnimal: ModalStructure = {
+  isError: true,
+  title: "Something went wrong",
+  text: "Can't get the animal",
+  isOn: false,
+};
