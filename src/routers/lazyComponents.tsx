@@ -9,3 +9,11 @@ export const LazyAnimalsListPage = lazy(
 export const LazyNotFoundPage = lazy(
   () => import("../pages/NotFoundPage/NotFoundPage")
 );
+
+export const LazyDetailPage = lazy(
+  () => import("../pages/DetailPage/DetailPage")
+);
+
+export const AddAnimalPage = lazy(
+  () => import("../pages/AddAnimalPage/AddAnimalPage")
+);

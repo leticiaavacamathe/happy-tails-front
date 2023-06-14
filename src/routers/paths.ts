@@ -4,6 +4,7 @@ const paths = {
   home: "/home",
   animals: "/animals",
   add: "/add",
+  detail: "/:idAnimal",
 };
 
 export default paths;

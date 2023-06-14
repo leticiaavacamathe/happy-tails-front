@@ -4,6 +4,10 @@ const NavBarStyled = styled.nav`
   width: 100%;
   gap: 10px;
 
+  .active {
+    border-bottom: 5px solid ${(props) => props.theme.colors.buttonPrimary};
+  }
+
   ul {
     display: flex;
     flex-direction: row;
