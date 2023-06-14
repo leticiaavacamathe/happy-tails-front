@@ -3,12 +3,13 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 import { Suspense } from "react";
 import {
   LazyAnimalsListPage,
+  LazyDetailPage,
   LazyLoginPage,
   LazyNotFoundPage,
-} from "./lazyComponents";
-import App from "../components/App/App";
-import paths from "./paths";
-import AddAnimalPage from "../pages/AddAnimalPage/AddAnimalPage";
+} from "../lazyComponents";
+import App from "../../components/App/App";
+import paths from "../paths";
+import AddAnimalPage from "../../pages/AddAnimalPage/AddAnimalPage";
 
 const routes: RouteObject[] = [
   {
@@ -37,7 +38,19 @@ const routes: RouteObject[] = [
       },
       {
         path: paths.add,
-        element: <AddAnimalPage />,
+        element: (
+          <Suspense>
+            <AddAnimalPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: `${paths.animals}/:idAnimal`,
+        element: (
+          <Suspense>
+            <LazyDetailPage />
+          </Suspense>
+        ),
       },
       {
         path: "*",

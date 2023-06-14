@@ -36,6 +36,10 @@ const AnimalCardStyled = styled.article`
     &__icon {
       margin-right: 2px;
     }
+
+    &__button {
+      padding: 0;
+    }
   }
 `;
 export default AnimalCardStyled;
