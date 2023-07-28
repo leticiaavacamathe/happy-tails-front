@@ -11,7 +11,7 @@ const AnimalsListPageStyled = styled.main`
     color: ${(props) => props.theme.colors.fontMainColor};
     font-weight: ${(props) => props.theme.fontWeights.bold};
     font-size: ${(props) => props.theme.fontSizes.medium};
-    padding-bottom: 15px;
+    padding: 15px;
   }
 `;
 
