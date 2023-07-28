@@ -7,7 +7,8 @@ const AnimalsListPageStyled = styled.main`
   flex-direction: column;
   align-items: center;
 
-  .list-page-title {
+  .list-page-title,
+  h2 {
     color: ${(props) => props.theme.colors.fontMainColor};
     font-weight: ${(props) => props.theme.fontWeights.bold};
     font-size: ${(props) => props.theme.fontSizes.medium};

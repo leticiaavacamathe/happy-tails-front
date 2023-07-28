@@ -5,6 +5,7 @@ import { loadAnimalsActionCreator } from "../../store/animal/animalSlice.js";
 import { useAppDispatch } from "../../store/index.js";
 import AnimalsListPageStyled from "./AnimalsListPageStyled.js";
 import Hero from "../../components/Hero/Hero.js";
+import Filter from "../../components/Filter/Filter.js";
 
 const AnimalsListPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
@@ -32,6 +33,8 @@ const AnimalsListPage = (): React.ReactElement => {
   return (
     <AnimalsListPageStyled>
       <Hero />
+      <h2>Pet categories</h2>
+      <Filter />
       <h1 className="list-page-title">Adopt me</h1>
       <AnimalsList />
     </AnimalsListPageStyled>
